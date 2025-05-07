@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Hotel List</h2>
+<a href="{% url 'hotel-create' %}" class="btn btn-primary mb-3">Add Hotel</a>
+<a href="{% url 'home' %}" class="btn btn-secondary mb-3">Back to Home</a>
+<ul class="list-group">
+    {% for hotel in hotels %}
+        <li class="list-group-item d-flex justify-content-between">
+            <div>
+                <strong>{{ hotel.name }}</strong><br>
+                {{ hotel.description }}
+            </div>
+            <div>
+                <a href="{% url 'hotel-update' hotel.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'hotel-delete' hotel.pk %}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
