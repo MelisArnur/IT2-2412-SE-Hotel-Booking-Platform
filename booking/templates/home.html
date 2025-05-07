@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Welcome to Hotel Booking Platform</h1>
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}! <a href="{% url 'profile' %}" class="btn btn-info">Profile</a>
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form></p>
+{% else %}
+    <p><a href="{% url 'login' %}" class="btn btn-success">Login</a> <a href="{% url 'register' %}" class="btn btn-primary">Register</a></p>
+{% endif %}
 <h2>Available Hotels</h2>
-<a href="{% url 'hotel-list' %}" class="btn btn-primary mb-3">Manage Hotels</a>
 <ul class="list-group">
     {% for hotel in hotels %}
         <li class="list-group-item">{{ hotel.name }} - {{ hotel.description }}</li>
