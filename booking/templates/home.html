@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hotel Booking - Home</title>
-</head>
-<body>
-    <h1>Welcome to Hotel Booking Platform</h1>
-    <h2>Available Hotels</h2>
-    <ul>
-        {% for hotel in hotels %}
-            <li>{{ hotel.name }} - {{ hotel.description }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'about' %}">About Us</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome to Hotel Booking Platform</h1>
+<h2>Available Hotels</h2>
+<a href="{% url 'hotel-list' %}" class="btn btn-primary mb-3">Manage Hotels</a>
+<ul class="list-group">
+    {% for hotel in hotels %}
+        <li class="list-group-item">{{ hotel.name }} - {{ hotel.description }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'about' %}" class="btn btn-secondary mt-3">About Us</a>
+{% endblock %}
