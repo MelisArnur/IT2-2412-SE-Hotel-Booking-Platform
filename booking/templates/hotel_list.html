@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Hotel List</h2>
-<a href="{% url 'hotel-create' %}" class="btn btn-primary mb-3">Add Hotel</a>
+{% if user.is_authenticated and user.username == 'Arnur' %}
+    <a href="{% url 'hotel-create' %}" class="btn btn-primary mb-3">Add Hotel</a>
+{% endif %}
 <a href="{% url 'home' %}" class="btn btn-secondary mb-3">Back to Home</a>
+<a href="{% url 'profile' %}" class="btn btn-info mb-3">Profile</a>
+<form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger mb-3">Logout</button>
+</form>
 <ul class="list-group">
     {% for hotel in hotels %}
         <li class="list-group-item d-flex justify-content-between">
@@ -10,10 +17,12 @@
                 <strong>{{ hotel.name }}</strong><br>
                 {{ hotel.description }}
             </div>
-            <div>
-                <a href="{% url 'hotel-update' hotel.pk %}" class="btn btn-warning btn-sm">Edit</a>
-                <a href="{% url 'hotel-delete' hotel.pk %}" class="btn btn-danger btn-sm">Delete</a>
-            </div>
+            {% if user.is_authenticated and user.username == 'Arnur' %}
+                <div>
+                    <a href="{% url 'hotel-update' hotel.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'hotel-delete' hotel.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            {% endif %}
         </li>
     {% endfor %}
 </ul>
