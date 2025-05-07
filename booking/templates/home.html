@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Booking - Home</title>
+</head>
+<body>
+    <h1>Welcome to Hotel Booking Platform</h1>
+    <h2>Available Hotels</h2>
+    <ul>
+        {% for hotel in hotels %}
+            <li>{{ hotel.name }} - {{ hotel.description }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'about' %}">About Us</a>
+</body>
+</html>
