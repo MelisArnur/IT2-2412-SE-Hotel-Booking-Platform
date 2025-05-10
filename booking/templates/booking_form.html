@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if booking %}Edit Booking{% else %}New Booking{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+<a href="{% url 'booking-list' %}" class="btn btn-secondary mt-3">Back</a>
+{% endblock %}

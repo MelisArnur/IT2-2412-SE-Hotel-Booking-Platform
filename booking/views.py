@@ -5,8 +5,10 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import login
-from .models import Hotel
-from .forms import HotelForm, RegisterForm, UpdateProfileForm
+from .models import Hotel, Booking
+from .forms import HotelForm, RegisterForm, UpdateProfileForm, BookingForm
+from rest_framework import viewsets 
+from .serializers import HotelSerializer, BookingSerializer
 
 def home(request):
     hotels = Hotel.objects.all()
@@ -21,7 +23,7 @@ class HotelListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     context_object_name = 'hotels'
 
     def test_func(self):
-        return self.request.user.username == 'Arnur'  # Разрешаем только admin
+        return self.request.user.username == 'Arnur'
 
 class HotelCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Hotel
@@ -30,7 +32,7 @@ class HotelCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     success_url = reverse_lazy('hotel-list')
 
     def test_func(self):
-        return self.request.user.username == 'Arnur'  # Разрешаем только admin
+        return self.request.user.username == 'Arnur'
 
 class HotelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Hotel
@@ -39,7 +41,7 @@ class HotelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     success_url = reverse_lazy('hotel-list')
 
     def test_func(self):
-        return self.request.user.username == 'Arnur'  # Разрешаем только admin
+        return self.request.user.username == 'Arnur'
 
 class HotelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Hotel
@@ -47,7 +49,7 @@ class HotelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('hotel-list')
 
     def test_func(self):
-        return self.request.user.username == 'Arnur'  # Разрешаем только admin
+        return self.request.user.username == 'Arnur'
 
 def register(request):
     if request.method == 'POST':
@@ -74,3 +76,37 @@ def edit_profile(request):
     else:
         form = UpdateProfileForm(instance=request.user)
     return render(request, 'edit_profile.html', {'form': form})
+
+@login_required
+def booking_list(request):
+    bookings = Booking.objects.filter(user=request.user)
+    return render(request, 'booking_list.html', {'bookings': bookings})
+
+@login_required
+def booking_create(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.save()
+            return redirect('booking-list')
+    else:
+        form = BookingForm()
+    return render(request, 'booking_form.html', {'form': form})
+
+class HotelViewSet(viewsets.ModelViewSet):
+    queryset = Hotel.objects.all()
+    serializer_class = HotelSerializer
+
+class BookingViewSet(viewsets.ModelViewSet):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Booking.objects.filter(user=self.request.user)
+        return Booking.objects.none()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

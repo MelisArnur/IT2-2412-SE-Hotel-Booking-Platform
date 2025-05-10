@@ -1,6 +1,11 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
 from . import views
+from rest_framework.routers import DefaultRouter  # Убедимся, что импорт есть
+
+router = DefaultRouter()
+router.register(r'hotels', views.HotelViewSet)
+router.register(r'bookings', views.BookingViewSet)
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -14,4 +19,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('profile/', views.profile, name='profile'),
     path('profile/edit/', views.edit_profile, name='edit-profile'),
+    path('bookings/', views.booking_list, name='booking-list'),
+    path('bookings/create/', views.booking_create, name='booking-create'),
+    path('api/', include(router.urls)),  # Используем router.urls
 ]
