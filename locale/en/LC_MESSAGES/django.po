@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Arnur <melisarnur3@gmail.com>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 22:31+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Arnur <melisarnur3@gmail.com>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Hotel Booking Platform"
+msgstr "Hotel Booking Platform"
+
+msgid "Hotel Booking"
+msgstr "Hotel Booking"
+
+msgid "English"
+msgstr "English"
+
+msgid "Русский"
+msgstr "Russian"
+
+msgid "Қазақша"
+msgstr "Kazakh"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Book a Room at"
+msgstr "Book a Room at"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Check-in"
+msgstr "Check-in"
+
+msgid "Check-out"
+msgstr "Check-out"
+
+msgid "Check Availability"
+msgstr "Check Availability"
+
+msgid "Available Rooms"
+msgstr "Available Rooms"
+
+msgid "Room Number"
+msgstr "Room Number"
+
+msgid "Price per Night"
+msgstr "Price per Night"
+
+msgid "Beds"
+msgstr "Beds"
+
+msgid "Area"
+msgstr "Area"
+
+msgid "sqm"
+msgstr "sqm"
+
+msgid "Balcony"
+msgstr "Balcony"
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "No"
+msgstr "No"
+
+msgid "View"
+msgstr "View"
+
+msgid "Book This Room"
+msgstr "Book This Room"
+
+msgid "No image available for this room."
+msgstr "No image available for this room."
+
+msgid "No rooms available for the selected dates."
+msgstr "No rooms available for the selected dates."
+
+msgid "Please select check-in and check-out dates to see available rooms."
+msgstr "Please select check-in and check-out dates to see available rooms."
+
+msgid "Where are you going?"
+msgstr "Where are you going?"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Our Hotels"
+msgstr "Our Hotels"
+
+msgid "Previous"
+msgstr "Previous"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "No images available for"
+msgstr "No images available for"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Book Now"
+msgstr "Book Now"
+
+msgid "No hotels available."
+msgstr "No hotels available."
+
+msgid "About"
+msgstr "About"
+
+msgid "Facilities"
+msgstr "Facilities"
+
+msgid "Free Wi-Fi"
+msgstr "Free Wi-Fi"
+
+msgid "Parking"
+msgstr "Parking"
+
+msgid "Swimming Pool"
+msgstr "Swimming Pool"
+
+msgid "Restaurant"
+msgstr "Restaurant"
+
+msgid "Gym"
+msgstr "Gym"
+
+msgid "No rooms available for this hotel."
+msgstr "No rooms available for this hotel."
+
+msgid "Cancellation Policy"
+msgstr "Cancellation Policy"
+
+msgid "Nearby Attractions"
+msgstr "Nearby Attractions"
+
+msgid "Average Rating from Guests"
+msgstr "Average Rating from Guests"
+
+msgid "based on"
+msgstr "based on"
+
+msgid "reviews"
+msgstr "reviews"
+
+msgid "Guest Reviews"
+msgstr "Guest Reviews"
+
+msgid "No reviews yet."
+msgstr "No reviews yet."
+
+msgid "Leave a Review"
+msgstr "Leave a Review"
+
+msgid "Rating (1-10)"
+msgstr "Rating (1-10)"
+
+msgid "Comment"
+msgstr "Comment"
+
+msgid "Submit Review"
+msgstr "Submit Review"
+
+msgid "Please"
+msgstr "Please"
+
+msgid "log in"
+msgstr "log in"
+
+msgid "or"
+msgstr "or"
+
+msgid "register"
+msgstr "register"
+
+msgid "to leave a review."
+msgstr "to leave a review."
+
+msgid "Location Map"
+msgstr "Location Map"
+
+msgid "No location data available for this hotel."
+msgstr "No location data available for this hotel."
+
+msgid "Your Profile"
+msgstr "Your Profile"
+
+msgid "Profile Information"
+msgstr "Profile Information"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+msgid "New Username"
+msgstr "New Username"
+
+msgid "New Email"
+msgstr "New Email"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Leave blank if unchanged"
+msgstr "Leave blank if unchanged"
+
+msgid "Save Changes"
+msgstr "Save Changes"
+
+msgid "Your Bookings"
+msgstr "Your Bookings"
+
+msgid "Room"
+msgstr "Room"
+
+msgid "Booked on"
+msgstr "Booked on"
+
+msgid "You have no bookings yet."
+msgstr "You have no bookings yet."
+
+msgid "Logged Out"
+msgstr "Logged Out"
+
+msgid "You have been logged out successfully. Thank you for using our platform!"
+msgstr "You have been logged out successfully. Thank you for using our platform!"
+
+msgid "Return to Home"
+msgstr "Return to Home"

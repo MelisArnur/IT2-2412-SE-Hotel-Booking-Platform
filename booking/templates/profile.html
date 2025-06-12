@@ -1,12 +1,76 @@
 {% extends 'base.html' %}
+{% load i18n %}  
 {% block content %}
-<h2>User Profile</h2>
-<p>Username: {{ user.username }}</p>
-<p>Email: {{ user.email }}</p>
-<a href="{% url 'edit-profile' %}" class="btn btn-warning">Edit Profile</a>
-<form action="{% url 'logout' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Logout</button>
-</form>
-<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Home</a>
+<div class="container mt-4">
+    
+    <h1>{% trans "Your Profile" %}</h1>
+
+
+    {% if messages %}
+        <div class="mt-3">
+            {% for message in messages %}
+                <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="card-title">{% trans "Profile Information" %}</h3>
+            <p><strong>{% trans "Username" %}:</strong> {{ user.username }}</p>
+            <p><strong>{% trans "Email" %}:</strong> {{ user.email }}</p>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="card-title">{% trans "Edit Profile" %}</h3>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">{% trans "New Username" %}</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">{% trans "New Email" %}</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">{% trans "New Password" %}</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="{% trans 'Leave blank if unchanged' %}">
+                </div>
+                <button type="submit" class="btn btn-booking">{% trans "Save Changes" %}</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title">{% trans "Your Bookings" %}</h3>
+            {% if bookings %}
+                <div class="row">
+                    {% for booking in bookings %}
+                        <div class="col-md-6 mb-3">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ booking.hotel.name }}</h5>
+                                    <p class="card-subtitle mb-2 text-muted">{% trans "Room" %}: {{ booking.room.room_type }} ({{ booking.room.room_number }})</p>
+                                    <p><strong>{% trans "Check-in" %}:</strong> {{ booking.check_in }}</p>
+                                    <p><strong>{% trans "Check-out" %}:</strong> {{ booking.check_out }}</p>
+                                    <p><strong>{% trans "Booked on" %}:</strong> {{ booking.created_at }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted">{% trans "You have no bookings yet." %}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,14 +1,129 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE|default:'en' }}">
 <head>
     <meta charset="UTF-8">
-    <title>Hotel Booking Platform</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Hotel Booking Platform" %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F7F7F7;
+        }
+        .navbar {
+            background-color: #003580;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .btn-primary {
+            background-color: #003580;
+            border-color: #003580;
+        }
+        .btn-primary:hover {
+            background-color: #00255d;
+            border-color: #00255d;
+        }
+        .btn-booking {
+            background-color: #FEBA02;
+            border-color: #FEBA02;
+            color: #003580;
+            font-weight: bold;
+        }
+        .btn-booking:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .carousel img {
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        {% block content %}
-        {% endblock %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'booking:home' %}">{% trans "Hotel Booking" %}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Переключатель языков -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == 'en' %}{% trans "English" %}
+                        {% elif LANGUAGE_CODE == 'ru' %}{% trans "Русский" %}
+                        {% elif LANGUAGE_CODE == 'kk' %}{% trans "Қазақша" %}
+                        {% else %}{% trans "English" %}{% endif %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <li>
+                            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="language" value="en">
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <button type="submit" class="dropdown-item">{% trans "English" %}</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="language" value="ru">
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <button type="submit" class="dropdown-item">{% trans "Русский" %}</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="language" value="kk">
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <button type="submit" class="dropdown-item">{% trans "Қазақша" %}</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'booking:profile' %}">{% trans "Profile" %}</a>
+                    </li>
+                    {% if user.username == 'Arnur' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/">{% trans "Admin" %}</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'booking:logout' %}">{% trans "Logout" %}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'booking:login' %}">{% trans "Login" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'booking:register' %}">{% trans "Register" %}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
+</nav>
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

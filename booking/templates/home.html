@@ -1,20 +1,74 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 {% block content %}
-<h1>Welcome to Hotel Booking Platform</h1>
-{% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}! <a href="{% url 'profile' %}" class="btn btn-info">Profile</a>
-    <form action="{% url 'logout' %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Logout</button>
-    </form></p>
-{% else %}
-    <p><a href="{% url 'login' %}" class="btn btn-success">Login</a> <a href="{% url 'register' %}" class="btn btn-primary">Register</a></p>
-{% endif %}
-<h2>Available Hotels</h2>
-<ul class="list-group">
+<div class="container mt-4">
+    <div class="card p-4 mb-4">
+        <form method="get" action="{% url 'booking:home' %}">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="location" class="form-label">{% trans "Location" %}</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="{% trans "Where are you going?" %}" value="{{ request.GET.location }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="check_in" class="form-label">{% trans "Check-in" %}</label>
+                    <input type="date" class="form-control" id="check_in" name="check_in" value="{{ request.GET.check_in }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="check_out" class="form-label">{% trans "Check-out" %}</label>
+                    <input type="date" class="form-control" id="check_out" name="check_out" value="{{ request.GET.check_out }}">
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-booking w-100">{% trans "Search" %}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="text-center mb-4">{% trans "Our Hotels" %}</h1>
     {% for hotel in hotels %}
-        <li class="list-group-item">{{ hotel.name }} - {{ hotel.description }}</li>
+        <div class="card mb-4">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    {% if hotel.images.all %}
+                        <div id="carousel-{{ hotel.id }}" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                {% for image in hotel.images.all %}
+                                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                        <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ hotel.name }}" style="width: 300px; height: 200px; object-fit: cover;">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ hotel.id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">{% trans "Previous" %}</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ hotel.id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">{% trans "Next" %}</span>
+                            </button>
+                        </div>
+                    {% else %}
+                        <p>{% trans "No images available for" %} {{ hotel.name }}.</p>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="{% url 'booking:hotel_detail' pk=hotel.pk %}">{{ hotel.name }}</a></h3>
+                        <p class="card-text">{{ hotel.description }}</p>
+                        <p class="card-text"><small class="text-muted">{% trans "Location" %}: {{ hotel.location }}</small></p>
+                        <div class="d-flex gap-2">
+                            <a href="{% url 'booking:hotel_detail' pk=hotel.pk %}" class="btn btn-primary">{% trans "View Details" %}</a>
+                            <a href="{% url 'booking:book_hotel' hotel_id=hotel.id %}" class="btn btn-booking">{% trans "Book Now" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">{% trans "No hotels available." %}</p>
     {% endfor %}
-</ul>
-<a href="{% url 'about' %}" class="btn btn-secondary mt-3">About Us</a>
+</div>
 {% endblock %}

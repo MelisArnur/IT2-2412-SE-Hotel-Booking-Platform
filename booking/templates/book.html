@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Book {{ hotel.name }}</h1>
+    <div class="card p-4">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="check_in" class="form-label">Check-in</label>
+                <input type="date" class="form-control" id="check_in" name="check_in" required>
+            </div>
+            <div class="mb-3">
+                <label for="check_out" class="form-label">Check-out</label>
+                <input type="date" class="form-control" id="check_out" name="check_out" required>
+            </div>
+            <button type="submit" class="btn btn-booking">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
