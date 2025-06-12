@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+
+    <h1>{{ hotel.name }} <span class="badge bg-primary">{{ hotel.rating }}/10</span></h1>
+    <p><small class="text-muted">{% trans "Location" %}: {{ hotel.location }}</small></p>
+
+    
+    {% if hotel.images.all %}
+        <div id="carousel-{{ hotel.id }}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for image in hotel.images.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ hotel.name }}" style="width: 100%; height: 400px; object-fit: cover;">
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ hotel.id }}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">{% trans "Previous" %}</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ hotel.id }}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">{% trans "Next" %}</span>
+            </button>
+        </div>
+    {% else %}
+        <p>{% trans "No images available for" %} {{ hotel.name }}.</p>
+    {% endif %}
+
+    
+    <div class="mt-4">
+        <h3>{% trans "About" %} {{ hotel.name }}</h3>
+        <p>{{ hotel.description }}</p>
+    </div>
+
+    <div class="mt-4">
+        <h3>{% trans "Facilities" %}</h3>
+        <ul class="list-group">
+            {% if hotel.wifi %}
+                <li class="list-group-item">{% trans "Free Wi-Fi" %}</li>
+            {% endif %}
+            {% if hotel.parking %}
+                <li class="list-group-item">{% trans "Parking" %}</li>
+            {% endif %}
+            {% if hotel.pool %}
+                <li class="list-group-item">{% trans "Swimming Pool" %}</li>
+            {% endif %}
+            {% if hotel.restaurant %}
+                <li class="list-group-item">{% trans "Restaurant" %}</li>
+            {% endif %}
+            {% if hotel.gym %}
+                <li class="list-group-item">{% trans "Gym" %}</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="mt-4">
+        <h3>{% trans "Available Rooms" %}</h3>
+        {% if hotel.rooms.all %}
+            <div class="row">
+                {% for room in hotel.rooms.all %}
+                    <div class="col-md-12 mb-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5 class="card-title text-primary">{{ room.room_type }}</h5>
+                                        <p class="card-subtitle mb-3 text-muted">{% trans "Room Number" %} {{ room.room_number }}</p>
+                                        <ul class="list-unstyled mt-3">
+                                            <li><strong>{% trans "Price per Night" %}:</strong> ${{ room.price_per_night }}</li>
+                                            <li><strong>{% trans "Beds" %}:</strong> {{ room.beds }}</li>
+                                            <li><strong>{% trans "Area" %}:</strong> {{ room.area }} {% trans "sqm" %}</li>
+                                            <li><strong>{% trans "Balcony" %}:</strong> {% if room.has_balcony %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</li>
+                                            <li><strong>{% trans "View" %}:</strong> {{ room.view }}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% if room.image %}
+                                            <img src="{{ room.image.url }}" class="img-fluid rounded" alt="{{ room.room_type }} - Room {{ room.room_number }}" style="max-height: 200px; width: 100%; object-fit: cover;">
+                                        {% else %}
+                                            <p class="text-muted">{% trans "No image available for this room." %}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{% trans "No rooms available for this hotel." %}</p>
+        {% endif %}
+    </div>
+
+    <div class="mt-4">
+        <h3>{% trans "Cancellation Policy" %}</h3>
+        <p>{{ hotel.cancellation_policy }}</p>
+    </div>
+
+    <div class="mt-4">
+        <h3>{% trans "Nearby Attractions" %}</h3>
+        <p>{{ hotel.nearby_attractions }}</p>
+    </div>
+
+    <div class="mt-4">
+        <h3>{% trans "Average Rating from Guests" %}</h3>
+        <p><strong>{{ hotel.average_rating|floatformat:1 }}/10</strong> ({% trans "based on" %} {{ hotel.reviews.count }} {% trans "reviews" %})</p>
+    </div>
+
+    <div class="mt-4">
+        <h3>{% trans "Guest Reviews" %}</h3>
+        {% for review in hotel.reviews.all %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">{{ review.user.username }} <span class="badge bg-primary">{{ review.rating }}/10</span></h5>
+                    <p class="card-text">{{ review.comment }}</p>
+                    <p class="card-text"><small class="text-muted">{{ review.created_at }}</small></p>
+                </div>
+            </div>
+        {% empty %}
+            <p>{% trans "No reviews yet." %}</p>
+        {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+        <div class="mt-4">
+            <h3>{% trans "Leave a Review" %}</h3>
+            <form method="post" action="{% url 'booking:hotel_detail' pk=hotel.pk %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="rating" class="form-label">{% trans "Rating (1-10)" %}</label>
+                    <select class="form-control" id="rating" name="rating" required>
+                        {% for i in "12345678910" %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="comment" class="form-label">{% trans "Comment" %}</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-booking">{% trans "Submit Review" %}</button>
+            </form>
+        </div>
+    {% else %}
+        <div class="mt-4">
+            <p>{% trans "Please" %} <a href="{% url 'booking:login' %}">{% trans "log in" %}</a> {% trans "or" %} <a href="{% url 'booking:register' %}">{% trans "register" %}</a> {% trans "to leave a review." %}</p>
+        </div>
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{% url 'booking:book_hotel' hotel_id=hotel.id %}" class="btn btn-booking">{% trans "Book Now" %}</a>
+    </div>
+
+    <div class="mt-4">
+        <h3>{% trans "Location Map" %}</h3>
+        {% if hotel.latitude and hotel.longitude %}
+            <div id="map" style="height: 400px; width: 100%;"></div>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var map = L.map("map").setView([{{ hotel.latitude }}, {{ hotel.longitude }}], 15);
+                    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+                    L.marker([{{ hotel.latitude }}, {{ hotel.longitude }}]).addTo(map)
+                        .bindPopup("{{ hotel.name }}")
+                        .openPopup();
+                });
+            </script>
+        {% else %}
+            <p>{% trans "No location data available for this hotel." %}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

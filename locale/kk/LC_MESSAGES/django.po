@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Arnur <melisarnur3@gmail.com>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 22:31+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Arnur <melisarnur3@gmail.com>\n"
+"Language-Team: Kazakh <kk@li.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Hotel Booking Platform"
+msgstr "Қонақ үйді брондау платформасы"
+
+msgid "Hotel Booking"
+msgstr "Қонақ үйді брондау"
+
+msgid "English"
+msgstr "Ағылшын"
+
+msgid "Русский"
+msgstr "Орыс"
+
+msgid "Қазақша"
+msgstr "Қазақша"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Admin"
+msgstr "Әкімші"
+
+msgid "Logout"
+msgstr "Шығу"
+
+msgid "Login"
+msgstr "Кіру"
+
+msgid "Register"
+msgstr "Тіркелу"
+
+msgid "Book a Room at"
+msgstr "Бөлме брондау"
+
+msgid "Location"
+msgstr "Орналасуы"
+
+msgid "Check-in"
+msgstr "Кіру күні"
+
+msgid "Check-out"
+msgstr "Шығу күні"
+
+msgid "Check Availability"
+msgstr "Қол жетімділікті тексеру"
+
+msgid "Available Rooms"
+msgstr "Қол жетімді бөлмелер"
+
+msgid "Room Number"
+msgstr "Бөлме нөмірі"
+
+msgid "Price per Night"
+msgstr "Түнгі бағасы"
+
+msgid "Beds"
+msgstr "Тәжерлер"
+
+msgid "Area"
+msgstr "Аумақ"
+
+msgid "sqm"
+msgstr "ш.м"
+
+msgid "Balcony"
+msgstr "Балкон"
+
+msgid "Yes"
+msgstr "Иә"
+
+msgid "No"
+msgstr "Жоқ"
+
+msgid "View"
+msgstr "Көрініс"
+
+msgid "Book This Room"
+msgstr "Бұл бөлмені брондау"
+
+msgid "No image available for this room."
+msgstr "Бұл бөлмеге сурет жоқ."
+
+msgid "No rooms available for the selected dates."
+msgstr "Таңдалған күндерге бөлмелер жоқ."
+
+msgid "Please select check-in and check-out dates to see available rooms."
+msgstr "Қол жетімді бөлмелерді көру үшін кіру және шығу күндеріңізді таңдаңыз."
+
+msgid "Where are you going?"
+msgstr "Сіз қайда бара жатырсыз?"
+
+msgid "Search"
+msgstr "Іздеу"
+
+msgid "Our Hotels"
+msgstr "Біздің қонақ үйлеріміз"
+
+msgid "Previous"
+msgstr "Алдыңғы"
+
+msgid "Next"
+msgstr "Келесі"
+
+msgid "No images available for"
+msgstr "Суреттер жоқ"
+
+msgid "View Details"
+msgstr "Толығырақ"
+
+msgid "Book Now"
+msgstr "Қазір брондау"
+
+msgid "No hotels available."
+msgstr "Қонақ үйлер жоқ."
+
+msgid "About"
+msgstr "Біз туралы"
+
+msgid "Facilities"
+msgstr "Жабдықтар"
+
+msgid "Free Wi-Fi"
+msgstr "Тегін Wi-Fi"
+
+msgid "Parking"
+msgstr "Автоөріс"
+
+msgid "Swimming Pool"
+msgstr "Жағажай бассейні"
+
+msgid "Restaurant"
+msgstr "Мейрамхана"
+
+msgid "Gym"
+msgstr "Фитнес зал"
+
+msgid "No rooms available for this hotel."
+msgstr "Бұл қонақ үйде бөлмелер жоқ."
+
+msgid "Cancellation Policy"
+msgstr "Бас тарту саясаты"
+
+msgid "Nearby Attractions"
+msgstr "Жақын маңдағы көрікті жерлер"
+
+msgid "Average Rating from Guests"
+msgstr "Қонақтардың орташа бағасы"
+
+msgid "based on"
+msgstr "негізінде"
+
+msgid "reviews"
+msgstr "пікірлер"
+
+msgid "Guest Reviews"
+msgstr "Қонақтардың пікірлері"
+
+msgid "No reviews yet."
+msgstr "Әлі пікір жоқ."
+
+msgid "Leave a Review"
+msgstr "Пікір қалдыру"
+
+msgid "Rating (1-10)"
+msgstr "Баға (1-10)"
+
+msgid "Comment"
+msgstr "Пікір"
+
+msgid "Submit Review"
+msgstr "Пікірді жіберу"
+
+msgid "Please"
+msgstr "Өтініш"
+
+msgid "log in"
+msgstr "кіру"
+
+msgid "or"
+msgstr "немесе"
+
+msgid "register"
+msgstr "тіркелу"
+
+msgid "to leave a review."
+msgstr "пікір қалдыру үшін."
+
+msgid "Location Map"
+msgstr "Орналасу картасы"
+
+msgid "No location data available for this hotel."
+msgstr "Бұл қонақ үйге орналасу деректері жоқ."
+
+msgid "Your Profile"
+msgstr "Сіздің профиліңіз"
+
+msgid "Profile Information"
+msgstr "Профиль ақпараты"
+
+msgid "Username"
+msgstr "Пайдаланушы аты"
+
+msgid "Email"
+msgstr "Электрондық пошта"
+
+msgid "Edit Profile"
+msgstr "Профильді өңдеу"
+
+msgid "New Username"
+msgstr "Жаңа пайдаланушы аты"
+
+msgid "New Email"
+msgstr "Жаңа электрондық пошта"
+
+msgid "New Password"
+msgstr "Жаңа құпия сөз"
+
+msgid "Leave blank if unchanged"
+msgstr "Егер өзгертілмесе, бос қалдырыңыз"
+
+msgid "Save Changes"
+msgstr "Өзгерістерді сақтау"
+
+msgid "Your Bookings"
+msgstr "Сіздің брондарыңыз"
+
+msgid "Room"
+msgstr "Бөлме"
+
+msgid "Booked on"
+msgstr "Брондалған күні"
+
+msgid "You have no bookings yet."
+msgstr "Сізде әлі брондау жоқ."
+
+msgid "Logged Out"
+msgstr "Шығылды"
+
+msgid "You have been logged out successfully. Thank you for using our platform!"
+msgstr "Сіз сәтті шығылдыңыз! Платформамызды қолданғаныңыз үшін рақмет!"
+
+msgid "Return to Home"
+msgstr "Басты бетке оралу"

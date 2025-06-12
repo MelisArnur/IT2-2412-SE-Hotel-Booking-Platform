@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Arnur <melisarnur3@gmail.com>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 22:31+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Arnur <melisarnur3@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Hotel Booking Platform"
+msgstr "Платформа бронирования отелей"
+
+msgid "Hotel Booking"
+msgstr "Бронирование отелей"
+
+msgid "English"
+msgstr "Английский"
+
+msgid "Русский"
+msgstr "Русский"
+
+msgid "Қазақша"
+msgstr "Казахский"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Admin"
+msgstr "Админ"
+
+msgid "Logout"
+msgstr "Выход"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Book a Room at"
+msgstr "Забронировать номер в"
+
+msgid "Location"
+msgstr "Местоположение"
+
+msgid "Check-in"
+msgstr "Заезд"
+
+msgid "Check-out"
+msgstr "Выезд"
+
+msgid "Check Availability"
+msgstr "Проверить доступность"
+
+msgid "Available Rooms"
+msgstr "Доступные номера"
+
+msgid "Room Number"
+msgstr "Номер комнаты"
+
+msgid "Price per Night"
+msgstr "Цена за ночь"
+
+msgid "Beds"
+msgstr "Кровати"
+
+msgid "Area"
+msgstr "Площадь"
+
+msgid "sqm"
+msgstr "кв.м"
+
+msgid "Balcony"
+msgstr "Балкон"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "View"
+msgstr "Вид"
+
+msgid "Book This Room"
+msgstr "Забронировать этот номер"
+
+msgid "No image available for this room."
+msgstr "Изображение для этого номера отсутствует."
+
+msgid "No rooms available for the selected dates."
+msgstr "Нет доступных номеров на выбранные даты."
+
+msgid "Please select check-in and check-out dates to see available rooms."
+msgstr "Пожалуйста, выберите даты заезда и выезда, чтобы увидеть доступные номера."
+
+msgid "Where are you going?"
+msgstr "Куда вы направляетесь?"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Our Hotels"
+msgstr "Наши отели"
+
+msgid "Previous"
+msgstr "Предыдущий"
+
+msgid "Next"
+msgstr "Следующий"
+
+msgid "No images available for"
+msgstr "Изображения отсутствуют для"
+
+msgid "View Details"
+msgstr "Подробнее"
+
+msgid "Book Now"
+msgstr "Забронировать сейчас"
+
+msgid "No hotels available."
+msgstr "Отели отсутствуют."
+
+msgid "About"
+msgstr "О нас"
+
+msgid "Facilities"
+msgstr "Удобства"
+
+msgid "Free Wi-Fi"
+msgstr "Бесплатный Wi-Fi"
+
+msgid "Parking"
+msgstr "Парковка"
+
+msgid "Swimming Pool"
+msgstr "Бассейн"
+
+msgid "Restaurant"
+msgstr "Ресторан"
+
+msgid "Gym"
+msgstr "Спортзал"
+
+msgid "No rooms available for this hotel."
+msgstr "Номера в этом отеле отсутствуют."
+
+msgid "Cancellation Policy"
+msgstr "Политика отмены"
+
+msgid "Nearby Attractions"
+msgstr "Ближайшие достопримечательности"
+
+msgid "Average Rating from Guests"
+msgstr "Средняя оценка гостей"
+
+msgid "based on"
+msgstr "на основе"
+
+msgid "reviews"
+msgstr "отзывов"
+
+msgid "Guest Reviews"
+msgstr "Отзывы гостей"
+
+msgid "No reviews yet."
+msgstr "Отзывов пока нет."
+
+msgid "Leave a Review"
+msgstr "Оставить отзыв"
+
+msgid "Rating (1-10)"
+msgstr "Оценка (1-10)"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Submit Review"
+msgstr "Отправить отзыв"
+
+msgid "Please"
+msgstr "Пожалуйста"
+
+msgid "log in"
+msgstr "войдите"
+
+msgid "or"
+msgstr "или"
+
+msgid "register"
+msgstr "зарегистрируйтесь"
+
+msgid "to leave a review."
+msgstr "чтобы оставить отзыв."
+
+msgid "Location Map"
+msgstr "Карта местоположения"
+
+msgid "No location data available for this hotel."
+msgstr "Данные о местоположении для этого отеля отсутствуют."
+
+msgid "Your Profile"
+msgstr "Ваш профиль"
+
+msgid "Profile Information"
+msgstr "Информация профиля"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Edit Profile"
+msgstr "Редактировать профиль"
+
+msgid "New Username"
+msgstr "Новое имя пользователя"
+
+msgid "New Email"
+msgstr "Новый email"
+
+msgid "New Password"
+msgstr "Новый пароль"
+
+msgid "Leave blank if unchanged"
+msgstr "Оставьте пустым, если не меняется"
+
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+msgid "Your Bookings"
+msgstr "Ваши бронирования"
+
+msgid "Room"
+msgstr "Номер"
+
+msgid "Booked on"
+msgstr "Забронировано"
+
+msgid "You have no bookings yet."
+msgstr "У вас пока нет бронирований."
+
+msgid "Logged Out"
+msgstr "Вы вышли"
+
+msgid "You have been logged out successfully. Thank you for using our platform!"
+msgstr "Вы успешно вышли. Спасибо за использование нашей платформы!"
+
+msgid "Return to Home"
+msgstr "Вернуться на главную"
